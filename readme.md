@@ -3,6 +3,14 @@ OverFlow's BrowserID authentication plugin for cakephp
 
   I just stumbled on Mozilla's new OpenID competitor and liked it. I figured I would be albe to implement it on my currently existing user database without any major changes, so I started a simple cake plugin for it.
 
+Prerequisites
+-------------
+
+  1. Your application should already have an authentication method setup, this plugin is simply designed to augment it.
+  2. Your AppController needs to use the Auth and Session components
+  3. Your server needs to support curl and ssl
+  
+  
 To Install
 ----------
 
