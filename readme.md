@@ -1,4 +1,4 @@
-OverFlow's BrowserID authentication plugin for cakephp
+OverFlow's BrowserID authentication plugin for CakePHP 2.x
 ======================================================
 
   I just stumbled on Mozilla's new OpenID competitor and liked it. I figured I would be albe to implement it on my currently existing user database without any major changes, so I started a simple cake plugin for it.
