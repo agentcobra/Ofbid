@@ -1,5 +1,14 @@
 <?php
 
+if (!Configure::read("Ofbid.sslCertPath"))
+{
+	Configure::write('Ofbid.sslCertPath', false);
+	$vpaths = APP::path('Vendor', 'Ofbid');
+	foreach($vpaths as $vpath)
+		if (file_exists($vpath.'cacert.pem'))
+			Configure::write('Ofbid.sslCertPath', $vpath.'cacert.pem');
+}
+
 if (!Configure::read("Ofbid.userModelName"))
 	Configure::write('Ofbid.userModelName', 'User');
 
