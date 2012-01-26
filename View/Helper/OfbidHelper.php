@@ -6,27 +6,28 @@ class OfbidHelper extends AppHelper
 		'Html'
 	);
 
-	function loginButton($text='Login with BrowserID')
+	function loginButton($text='Login with BrowserID', $tag='button', $options=array())
 	{
-		$out = $this->Html->tag('button', $text, array('onClick'=>'ofbid_login()'));
-		
+		$options = array_merge($options, array('onClick'=>'ofbid_login()'));
+		$out = $this->Html->tag($tag, $text, $options);
+
 		return $this->__head().$out.$this->__foot();
 	}
-	
+
 	function imageButton($color='green')
 	{
 		$out = $this->Html->image("/ofbid/img/sign_in_$color.png", array('onClick'=>'ofbid_login()', 'style'=>'cursor:pointer'));
-		
+
 		return $this->__head().$out.$this->__foot();
 	}
-	
+
 	function __head()
 	{
 		$out  = $this->Html->script('https://browserid.org/include.js');
 		$out .= $this->Html->script('http://code.jquery.com/jquery-1.7.1.min.js');
 		return $out;
 	}
-	
+
 	function __foot()
 	{
 		return '<script>
