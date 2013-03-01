@@ -23,7 +23,7 @@ class OfbidHelper extends AppHelper
 
 	function __head()
 	{
-		$out  = $this->Html->script('https://browserid.org/include.js');
+		$out  = $this->Html->script('https://login.persona.org/include.js');
 		$out .= $this->Html->script('http://code.jquery.com/jquery-1.7.1.min.js');
 		return $out;
 	}

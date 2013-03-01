@@ -19,7 +19,7 @@ class AuthenticateController extends OfbidAppController
 		if ($this->request->is('post'))
 		{
 			$this->request->data['audience'] = $_SERVER['SERVER_NAME'];
-			$req = json_decode($this->__simplePost('https://browserid.org/verify', $this->request->data));
+			$req = json_decode($this->__simplePost('https://verifier.login.persona.org/verify', $this->request->data));
 			
 			if ($req && $req->status == 'okay')
 			{
