@@ -62,11 +62,10 @@ class AuthenticateController extends OfbidAppController
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 		if (Configure::read("Ofbid.sslCertPath"))
 		{
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
 			curl_setopt($ch, CURLOPT_CAINFO, Configure::read("Ofbid.sslCertPath"));
 		}
 		$result = curl_exec($ch);
