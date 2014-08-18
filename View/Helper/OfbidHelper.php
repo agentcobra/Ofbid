@@ -23,15 +23,14 @@ class OfbidHelper extends AppHelper
 
 	function __head()
 	{
-		$out  = $this->Html->script('https://login.persona.org/include.js');
-		$out .= $this->Html->script('http://code.jquery.com/jquery-1.7.1.min.js');
+		$out  = $this->Html->script('https://login.persona.org/include.js',['inline'=>false]);
+		$out .= $this->Html->script('http://code.jquery.com/jquery-1.7.1.min.js',['inline'=>false]);
 		return $out;
 	}
 
 	function __foot()
 	{
-		return '<script>
-			function ofbid_login() {
+		$persona = 'function ofbid_login() {
 				navigator.id.get(function(assertion) {
 					if (assertion) {
 						$.ajax({
@@ -47,7 +46,7 @@ class OfbidHelper extends AppHelper
 						});
 					}
 				});
-			}
-			</script>';
+			}';
+		return $this->Html->scriptBlock($persona, ['inline' => false]);
 	}
 }
